@@ -4,6 +4,7 @@ package com.example.gaurav.projectone;
  * Created by gaurav on 25-08-2016.
  */
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -44,11 +45,21 @@ public class TopSectionFragment extends Fragment {
         topTextInput = (EditText) view.findViewById(R.id.topTextInput);
         bottonTextInput = (EditText) view.findViewById(R.id.bottomTextInput);
         final Button button = (Button) view.findViewById(R.id.button);
+        final Button button2 = (Button) view.findViewById(R.id.button2);
 
         button.setOnClickListener(
-                new View.OnClickListener(){
-                    public void onClick(View v){
+                new View.OnClickListener() {
+                    public void onClick(View v) {
                         buttonClicked(v);
+                    }
+                }
+        );
+
+
+        button2.setOnClickListener(
+                new View.OnClickListener() {
+                    public void onClick(View v) {
+                        button2Clicked(v);
                     }
                 }
         );
@@ -57,7 +68,33 @@ public class TopSectionFragment extends Fragment {
     }
     //call this method when button is clicked
     public void buttonClicked(View view){
-        activitycommander.createMeme(topTextInput.getText().toString(),bottonTextInput.getText().toString());
+        activitycommander.createMeme(topTextInput.getText().toString(), bottonTextInput.getText().toString());
 
     }
+
+    //call this method when button2 is clicked
+    public void button2Clicked(View view){
+        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+        intent.setType("file/*");
+        startActivityForResult(intent, PICKFILE_RESULT_CODE);
+
+    }
+    private static final int PICKFILE_RESULT_CODE = 1;
+
+
+
+    //TextView textFile;
+   /* @Override
+    public onActivityResult(int requestCode, int resultCode, Intent data) {
+        // TODO Auto-generated method stub
+        switch(requestCode){
+            //case PICKFILE_RESULT_CODE:
+               if(resultCode==RESULT_OK){
+                    String FilePath = data.getData().getPath();
+                    textFile.setText(FilePath);
+                }
+                break;
+
+        }
+    }*/
 }

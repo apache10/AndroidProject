@@ -26,8 +26,16 @@
         android:layout_height="wrap_content"
         android:text="@string/button_text"
         android:layout_below="@+id/bottomTextInput"
-        android:layout_marginTop="15dp"
-        android:layout_centerHorizontal="true"
-        />
+        android:layout_alignStart="@+id/bottomTextInput"
+        android:layout_marginTop="8dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="select image"
+        android:id="@+id/button2"
+        android:layout_below="@+id/bottomTextInput"
+        android:layout_alignEnd="@+id/bottomTextInput"
+        android:layout_marginTop="8dp" />
 
 </RelativeLayout>
