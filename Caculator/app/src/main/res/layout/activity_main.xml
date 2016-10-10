@@ -155,7 +155,7 @@
         android:layout_width="80dp"
         android:layout_height="50dp"
         android:text="@string/buttonSub"
-        android:id="@+id/button-"
+        android:id="@+id/buttonSub"
         android:layout_below="@+id/buttonx"
         android:layout_toRightOf="@+id/button11"
         android:layout_toEndOf="@+id/button11" />
@@ -166,7 +166,7 @@
         android:layout_height="50dp"
         android:text="@string/buttonAdd"
         android:id="@+id/buttonplus"
-        android:layout_below="@+id/button-"
+        android:layout_below="@+id/buttonSub"
         android:layout_toRightOf="@+id/button12"
         android:layout_toEndOf="@+id/button12" />
 
