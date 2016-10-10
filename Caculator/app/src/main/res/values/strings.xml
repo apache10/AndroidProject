@@ -16,4 +16,6 @@
     <string name="button1">1</string>
     <string name="button4">4</string>
     <string name="button7">7</string>
+    <string name="display">Result</string>
+    <string name="Welcome">Welcome To My Calculator</string>
 </resources>

@@ -8,88 +8,90 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="com.calculator.gaurav.myapplication.MainActivity">
+    tools:context="com.calculator.gaurav.myapplication.MainActivity"
+    android:onClick="setContentView">
 
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="80dp"
         android:layout_height="50dp"
         android:text="@string/button4"
-        android:id="@+id/button"
-        android:layout_below="@+id/button2"
-        android:layout_alignLeft="@+id/button3"
-        android:layout_alignStart="@+id/button3" />
+        android:id="@+id/button4"
+        android:layout_below="@+id/button7"
+        android:layout_alignLeft="@+id/button1T"
+        android:layout_alignStart="@+id/button1T" /><!--4-->
 
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="80dp"
         android:layout_height="50dp"
         android:text="@string/button7"
-        android:id="@+id/button2"
-        android:layout_above="@+id/button7"
+        android:id="@+id/button7"
+        android:layout_above="@+id/button5"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true" /><!--7-->
 
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="80dp"
         android:layout_height="50dp"
         android:text="@string/button1"
-        android:id="@+id/button3"
-        android:layout_above="@+id/button4"
+        android:id="@+id/button1T"
+        android:layout_above="@+id/buttondot"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:onClick="@string/button1" /><!--1-->
 
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="80dp"
         android:layout_height="50dp"
         android:text="@string/buttonDot"
-        android:id="@+id/button4"
+        android:id="@+id/buttondot"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true" /><!--dot-->
 
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="80dp"
         android:layout_height="50dp"
         android:text="@string/button2"
-        android:id="@+id/button5"
-        android:layout_alignBaseline="@+id/button3"
-        android:layout_alignBottom="@+id/button3"
-        android:layout_toRightOf="@+id/button"
-        android:layout_toEndOf="@+id/button" />
+        android:id="@+id/button2"
+        android:layout_alignBaseline="@+id/button1T"
+        android:layout_alignBottom="@+id/button1T"
+        android:layout_toRightOf="@+id/button4"
+        android:layout_toEndOf="@+id/button4" /><!--2-->
 
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="80dp"
         android:layout_height="50dp"
         android:text="@string/button8"
-        android:id="@+id/button6"
-        android:layout_alignTop="@+id/button2"
-        android:layout_toRightOf="@+id/button2"
-        android:layout_toEndOf="@+id/button2" />
+        android:id="@+id/button8"
+        android:layout_alignTop="@+id/button7"
+        android:layout_toRightOf="@+id/button7"
+        android:layout_toEndOf="@+id/button7" /><!--8-->
 
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="80dp"
         android:layout_height="50dp"
         android:text="@string/button5"
-        android:id="@+id/button7"
-        android:layout_above="@+id/button3"
-        android:layout_toRightOf="@+id/button"
-        android:layout_toEndOf="@+id/button" />
+        android:id="@+id/button5"
+        android:layout_above="@+id/button1T"
+        android:layout_toRightOf="@+id/button4"
+        android:layout_toEndOf="@+id/button4" /><!--5-->
 
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="80dp"
         android:layout_height="50dp"
         android:text="@string/button0"
-        android:id="@+id/button8"
+        android:id="@+id/button0"
         android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/button7"
-        android:layout_alignStart="@+id/button7" />
+        android:layout_alignLeft="@+id/button5"
+        android:layout_alignStart="@+id/button5" /><!--0-->
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -97,39 +99,40 @@
         android:layout_height="50dp"
         android:text="@string/button9"
         android:id="@+id/button9"
-        android:layout_alignTop="@+id/button6"
-        android:layout_toRightOf="@+id/button6"
-        android:layout_toEndOf="@+id/button6" />
+        android:layout_alignTop="@+id/button8"
+        android:layout_toRightOf="@+id/button8"
+        android:layout_toEndOf="@+id/button8" /><!--9-->
 
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="80dp"
         android:layout_height="50dp"
         android:text="@string/button6"
-        android:id="@+id/button10"
-        android:layout_below="@+id/button6"
-        android:layout_toRightOf="@+id/button5"
-        android:layout_toEndOf="@+id/button5" />
+        android:id="@+id/button6"
+        android:layout_below="@+id/button8"
+        android:layout_toRightOf="@+id/button2"
+        android:layout_toEndOf="@+id/button2" /><!--6-->
 
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="80dp"
         android:layout_height="50dp"
         android:text="@string/button3"
-        android:id="@+id/button11"
-        android:layout_below="@+id/button10"
-        android:layout_toRightOf="@+id/button5"
-        android:layout_toEndOf="@+id/button5" />
+        android:id="@+id/button3"
+        android:layout_below="@+id/button6"
+        android:layout_toRightOf="@+id/button2"
+        android:layout_toEndOf="@+id/button2" /><!--3-->
 
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="80dp"
         android:layout_height="50dp"
         android:text="@string/buttonEql"
-        android:id="@+id/button12"
-        android:layout_below="@+id/button11"
-        android:layout_toRightOf="@+id/button5"
-        android:layout_toEndOf="@+id/button5" />
+        android:id="@+id/buttoneql"
+        android:layout_below="@+id/button3"
+        android:layout_toRightOf="@+id/button2"
+        android:layout_toEndOf="@+id/button2"
+        android:onClick="setContentView" /><!--eql-->
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="80dp"
@@ -138,42 +141,46 @@
         android:id="@+id/buttondiv"
         android:layout_alignTop="@+id/button9"
         android:layout_toRightOf="@+id/button9"
-        android:layout_toEndOf="@+id/button9" />
+        android:layout_toEndOf="@+id/button9"
+        android:onClick="setContentView" /><!--div-->
 
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="80dp"
         android:layout_height="50dp"
         android:text="@string/buttonMul"
-        android:id="@+id/buttonx"
+        android:id="@+id/buttonmul"
         android:layout_below="@+id/buttondiv"
-        android:layout_toRightOf="@+id/button10"
-        android:layout_toEndOf="@+id/button10" />
+        android:layout_toRightOf="@+id/button6"
+        android:layout_toEndOf="@+id/button6"
+        android:onClick="setContentView" /><!--mul-->
 
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="80dp"
         android:layout_height="50dp"
         android:text="@string/buttonSub"
-        android:id="@+id/buttonSub"
-        android:layout_below="@+id/buttonx"
-        android:layout_toRightOf="@+id/button11"
-        android:layout_toEndOf="@+id/button11" />
+        android:id="@+id/buttonsub"
+        android:layout_below="@+id/buttonmul"
+        android:layout_toRightOf="@+id/button3"
+        android:layout_toEndOf="@+id/button3"
+        android:onClick="setContentView" /><!--sub-->
 
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="80dp"
         android:layout_height="50dp"
         android:text="@string/buttonAdd"
-        android:id="@+id/buttonplus"
-        android:layout_below="@+id/buttonSub"
-        android:layout_toRightOf="@+id/button12"
-        android:layout_toEndOf="@+id/button12" />
+        android:id="@+id/buttonadd"
+        android:layout_below="@+id/buttonsub"
+        android:layout_toRightOf="@+id/buttoneql"
+        android:layout_toEndOf="@+id/buttoneql"
+        android:onClick="setContentView" /><!--add-->
 
     <TextView
         android:layout_width="300dp"
         android:layout_height="50dp"
-        android:text="Welcome To My Calculator"
+        android:text="@string/Welcome"
         android:id="@+id/textView"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
@@ -183,9 +190,9 @@
     <TextView
         android:layout_width="400dp"
         android:layout_height="100dp"
-        android:text="Display"
+        android:text="@string/display"
         android:id="@+id/textView2"
-        android:layout_above="@+id/button2"
+        android:layout_above="@+id/button7"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="95dp"
         android:textAlignment="center"
