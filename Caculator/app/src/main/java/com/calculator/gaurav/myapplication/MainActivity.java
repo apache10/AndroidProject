@@ -2,9 +2,11 @@ package com.calculator.gaurav.myapplication;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.view.View.OnClickListener;
+import android.widget.TextView;
 
 public class MainActivity extends Activity implements OnClickListener {
 
@@ -54,111 +56,213 @@ public class MainActivity extends Activity implements OnClickListener {
     }
     //onClick
     public void onClick(View v) {
-        String equations=null;
+
         switch (v.getId()) {
             case  R.id.buttonadd: {
                 // do something for button 1 click
-                equations = equations+ '+';
+                TextView textView= (TextView) findViewById(R.id.textView);
+                textView.append("+");
                 break;
             }
 
             case R.id.buttonsub: {
                 // do something for button 2 click
-                equations = equations+ '-';
-
+                TextView textView = (TextView) findViewById(R.id.textView);
+                textView.append("-");
                 break;
             }
 
             case R.id.buttonmul : {
                 // do something for button  click
-                equations = equations+'*';
+                TextView textView = (TextView) findViewById(R.id.textView);
+                textView.append("*");
                 break;
             }
 
             case R.id.buttondiv: {
                 // do something for button 2 click
-                equations = equations+'/';
+                TextView textView = (TextView) findViewById(R.id.textView);
+                textView.append("/");
                 break;
             }
 
             case R.id.button0: {
                 // do something for button 2 click
-                equations = equations+'0';
+                TextView textView = (TextView) findViewById(R.id.textView);
+                textView.append("0");
                 break;
             }
 
             case R.id.button1: {
                 // do something for button 2 click
-                equations = equations+'1';
+                TextView textView = (TextView) findViewById(R.id.textView);
+                textView.append("1");
                 break;
             }
 
             case R.id.button2: {
                 // do something for button 2 clic
-                equations = equations+'2';
+                TextView textView = (TextView) findViewById(R.id.textView);
+                textView.append("2");
                 break;
             }
 
             case R.id.button3: {
                 // do something for button 2 click
-                equations = equations+'3';
+                TextView textView = (TextView) findViewById(R.id.textView);
+                textView.append("3");
                 break;
             }
 
             case R.id.button4: {
                 // do something for button 2 click
-                equations = equations+'4';
+                TextView textView = (TextView) findViewById(R.id.textView);
+                textView.append("4");
                 break;
             }
 
             case R.id.button5: {
                 // do something for button 2 click
-                equations = equations+'5';
+                TextView textView = (TextView) findViewById(R.id.textView);
+                textView.append("5");
                 break;
             }
 
             case R.id.button6: {
                 // do something for button 2 click
-                equations = equations+'6';
+                TextView textView = (TextView) findViewById(R.id.textView);
+                textView.append("6");
                 break;
             }
 
             case R.id.button7: {
                 // do something for button 2 click
-                equations = equations+'7';
+                TextView textView = (TextView) findViewById(R.id.textView);
+                textView.append("7");
                 break;
             }
 
             case R.id.button8: {
                 // do something for button 2 click
-                equations = equations+'8';
+                TextView textView = (TextView) findViewById(R.id.textView);
+                textView.append("8");
                 break;
             }
 
             case R.id.button9: {
                 // do something for button 2 click
-                equations = equations+'9';
+                TextView textView = (TextView) findViewById(R.id.textView);
+                textView.append("9");
                 break;
             }
 
             case R.id.buttondot: {
                 // do something for button 2 click
-                equations = equations+'.';
+                TextView textView = (TextView) findViewById(R.id.textView);
+                textView.append(".");
                 break;
             }
 
             case R.id.buttonc: {
                 // do something for button 2 click
-                equations = null;
+                TextView textView = (TextView) findViewById(R.id.textView);
+                textView.setText("");
                 break;
             }
 
             case R.id.buttoneql: {
                 // do something for button 2 click
-
+                TextView textView = (TextView) findViewById(R.id.textView);
+                Log.d("Eval  " , textView.toString());
+                final String str = textView.getText().toString();
+                Log.d("Eval  " , str);
+                double result = eval(str);
+                TextView textView2 = (TextView) findViewById(R.id.textView2);
+                textView2.setText(Double.toString(result));
                 break;
             }
         }
+    }
+
+    //evaluate
+    public static double eval(final String str) {
+        return new Object() {
+            int pos = -1, ch;
+
+            void nextChar() {
+                ch = (++pos < str.length()) ? str.charAt(pos) : -1;
+            }
+
+            boolean eat(int charToEat) {
+                while (ch == ' ') nextChar();
+                if (ch == charToEat) {
+                    nextChar();
+                    return true;
+                }
+                return false;
+            }
+
+            double parse() {
+                nextChar();
+                double x = parseExpression();
+                if (pos < str.length()) throw new RuntimeException("Unexpected: " + (char)ch);
+                return x;
+            }
+
+            // Grammar:
+            // expression = term | expression `+` term | expression `-` term
+            // term = factor | term `*` factor | term `/` factor
+            // factor = `+` factor | `-` factor | `(` expression `)`
+            //        | number | functionName factor | factor `^` factor
+
+            double parseExpression() {
+                double x = parseTerm();
+                for (;;) {
+                    if      (eat('+')) x += parseTerm(); // addition
+                    else if (eat('-')) x -= parseTerm(); // subtraction
+                    else return x;
+                }
+            }
+
+            double parseTerm() {
+                double x = parseFactor();
+                for (;;) {
+                    if      (eat('*')) x *= parseFactor(); // multiplication
+                    else if (eat('/')) x /= parseFactor(); // division
+                    else return x;
+                }
+            }
+
+            double parseFactor() {
+                if (eat('+')) return parseFactor(); // unary plus
+                if (eat('-')) return -parseFactor(); // unary minus
+
+                double x;
+                int startPos = this.pos;
+                if (eat('(')) { // parentheses
+                    x = parseExpression();
+                    eat(')');
+                } else if ((ch >= '0' && ch <= '9') || ch == '.') { // numbers
+                    while ((ch >= '0' && ch <= '9') || ch == '.') nextChar();
+                    x = Double.parseDouble(str.substring(startPos, this.pos));
+                } else if (ch >= 'a' && ch <= 'z') { // functions
+                    while (ch >= 'a' && ch <= 'z') nextChar();
+                    String func = str.substring(startPos, this.pos);
+                    x = parseFactor();
+                    if (func.equals("sqrt")) x = Math.sqrt(x);
+                    else if (func.equals("sin")) x = Math.sin(Math.toRadians(x));
+                    else if (func.equals("cos")) x = Math.cos(Math.toRadians(x));
+                    else if (func.equals("tan")) x = Math.tan(Math.toRadians(x));
+                    else throw new RuntimeException("Unknown function: " + func);
+                } else {
+                    throw new RuntimeException("Unexpected: " + (char)ch);
+                }
+
+                if (eat('^')) x = Math.pow(x, parseFactor()); // exponentiation
+
+                return x;
+            }
+        }.parse();
     }
 
 }

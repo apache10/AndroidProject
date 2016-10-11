@@ -189,7 +189,6 @@
     <TextView
         android:layout_width="300dp"
         android:layout_height="50dp"
-        android:text="@string/Welcome"
         android:id="@+id/textView"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
@@ -199,7 +198,6 @@
     <TextView
         android:layout_width="400dp"
         android:layout_height="100dp"
-        android:text="@string/display"
         android:id="@+id/textView2"
         android:layout_above="@+id/button7"
         android:layout_centerHorizontal="true"
