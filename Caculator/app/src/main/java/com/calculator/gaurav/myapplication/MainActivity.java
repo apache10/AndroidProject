@@ -177,13 +177,15 @@ public class MainActivity extends Activity implements OnClickListener {
                 final String str = textView.getText().toString();
                 Log.d("Eval  " , str);
                 double result = 0;
+                TextView textView2 = (TextView) findViewById(R.id.textView2);
                 try {
                     result = eval(str);
+                    textView2.setText(Double.toString(result));
+
                 } catch (Exception e) {
                     e.printStackTrace();
+                    textView2.setText("syntax error");
                 }
-                TextView textView2 = (TextView) findViewById(R.id.textView2);
-                textView2.setText(Double.toString(result));
                 break;
             }
         }
