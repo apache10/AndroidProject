@@ -176,7 +176,12 @@ public class MainActivity extends Activity implements OnClickListener {
                 Log.d("Eval  " , textView.toString());
                 final String str = textView.getText().toString();
                 Log.d("Eval  " , str);
-                double result = eval(str);
+                double result = 0;
+                try {
+                    result = eval(str);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
                 TextView textView2 = (TextView) findViewById(R.id.textView2);
                 textView2.setText(Double.toString(result));
                 break;
@@ -185,7 +190,7 @@ public class MainActivity extends Activity implements OnClickListener {
     }
 
     //evaluate
-    public static double eval(final String str) {
+    public static double eval(final String str) throws Exception {
         return new Object() {
             int pos = -1, ch;
 
