@@ -22,6 +22,9 @@ public interface ApiInterface {
     @GET("hello")
     Call<JsonObject> getGreet();
 
+    @GET("json")
+    Call<JsonObject> getPlaceInfo(@Query("location") String location, @Query("radius") int radius, @Query("type") String type,@Query("key") String apiKey);
+
    /* @GET("users/{name}")
     Call<User> getUser(@Path("name") String name);
 
