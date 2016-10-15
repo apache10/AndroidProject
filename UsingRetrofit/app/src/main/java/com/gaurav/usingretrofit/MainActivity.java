@@ -27,44 +27,15 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
-    private GoogleMap mMap;
-    private static String TAG = "DUDE";
-    private List<Marker> originMarkers = new ArrayList<>();
-    private List<Marker> destinationMarkers = new ArrayList<>();
-    private List<Polyline> polylinePaths = new ArrayList<>();
     private ProgressDialog progressDialog;
     private final PlaceInfo placeInfo=new PlaceInfo();
-    int color = 0;
-    int ch=0;
-    public static List<Marker> CurrentMarker = new ArrayList<>();
-    private GoogleApiClient client;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this);
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
-        apiCalls();
-    }
-    public void apiCalls(){
-        ApiInterface apiservice = ApiClient.getClient().create(ApiInterface.class);
-        Call<JsonObject> callGreet = apiservice.getGreet();
-        callGreet.enqueue(new Callback<JsonObject>() {
-            @Override
-            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-                Log.d("Data", response.body().toString());
-            }
-
-            @Override
-            public void onFailure(Call<JsonObject> call, Throwable t) {
-                Log.d("Data", "Error");
-            }
-        });
+        LatLng l=new LatLng(12.9716, 77.5946);
+        PlaceApi(l,2000,"resturant");
     }
     public void PlaceApi(LatLng l, int radius, String type){
         final String s=type;
@@ -75,7 +46,6 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
                 Log.d("Response size "," " + response.body().get("results").getAsJsonArray().size());
                 Log.d("Response " , response.body().get("results").toString());
-
                 placeInfo.Print();
             }
 
