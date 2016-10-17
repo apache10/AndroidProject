@@ -1,5 +1,7 @@
 package com.example.gaurav.starwar.rest;
 
+import com.example.gaurav.starwar.model.ShipInfo;
+import com.example.gaurav.starwar.model.ShipInfoResponse;
 import com.google.gson.JsonObject;
 import com.example.gaurav.starwar.*;
 
@@ -20,6 +22,8 @@ import retrofit2.http.Query;
 
 public interface ApiInterface {
     @GET("starships")
-    Call<JsonObject> getShipInfo();
+    Call<ShipInfo> getShipInfo();
+    @GET("films")
+    Call<JsonObject> getFilmsInfo();
 
 }
