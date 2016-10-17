@@ -1,41 +1,37 @@
-package com.gaurav.usingretrofit;
+package com.example.gaurav.starwar;
 
 import android.app.ProgressDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.gaurav.usingretrofit.constant.ProjectConstant;
-import com.gaurav.usingretrofit.model.PlaceInfo;
-import com.gaurav.usingretrofit.rest.ApiClient;
-import com.gaurav.usingretrofit.rest.ApiInterface;
-import com.google.android.gms.maps.model.LatLng;
+import com.example.gaurav.starwar.rest.ApiClient;
+import com.example.gaurav.starwar.rest.ApiInterface;
 import com.google.gson.JsonObject;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MainActivity extends AppCompatActivity {
+import static android.R.attr.name;
 
-    private ProgressDialog progressDialog;
-    private final PlaceInfo placeInfo=new PlaceInfo();
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        LatLng l=new LatLng(12.9716, 77.5946);
-        PlaceApi(l,2000,"resturant");
-    }
-    public void PlaceApi(LatLng l, int radius, String type){
+            SpaceApi();
+        }
+    public void SpaceApi(){
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-        Call<JsonObject> call= apiService.getPlaceInfo(""+l.latitude+"," + l.longitude,  radius , type , ProjectConstant.GoogleApiKey);
+        Call<JsonObject> call= apiService.getShipInfo();//type of api
         call.enqueue(new Callback<JsonObject>() {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
                 Log.d("Response size "," " + response.body().get("results").getAsJsonArray().size());
                 Log.d("Response " , response.body().get("results").toString());
-                placeInfo.Print();
+
             }
 
             @Override
