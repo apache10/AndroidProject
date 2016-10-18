@@ -4,6 +4,8 @@ import android.app.ProgressDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import com.example.gaurav.starwar.model.ShipInfo;
 import com.example.gaurav.starwar.model.ShipInfoResponse;
@@ -23,6 +25,12 @@ public class MainActivity extends AppCompatActivity {
     List<ShipInfoResponse> shipInfo;
     private List<ShipInfo> AllResults =new ArrayList<>();
     ApiInterface apiService;
+    String[] mobileArray = {"Android","IPhone","WindowsMobile","Blackberry","WebOS","Ubuntu","Windows7","Max OS X"};
+    String shipArray;
+    String[] result;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,8 +38,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         apiService = ApiClient.getClient().create(ApiInterface.class);
         SpaceApi(1);
-            //FilmsApi();
-        }
+
+
+        ArrayAdapter adapter = new ArrayAdapter<String>(this, R.layout.activity_list, mobileArray);
+        ListView listView = (ListView) findViewById(R.id.mobile_list);
+        listView.setAdapter(adapter);
+
+
+
+    }
+
     public void FilmsApi(){
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
         Call<JsonObject> call= apiService.getFilmsInfo();//type of api
@@ -64,8 +80,10 @@ public class MainActivity extends AppCompatActivity {
                 }
                 if(page<4)
                     SpaceApi(page+1);
-                else
-                    Log.d("Response Size", ""+AllResults.size());
+                else {
+                    Log.d("Response Size", "" + AllResults.get(0).getName());
+                    String[] finalArray=resultArray();
+                }
             }
 
             @Override
@@ -75,5 +93,20 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("Response ship", "Error");
             }
         });
+
     }
+
+    public String[] resultArray(){
+        for(int num=1;num<37;num++){
+            Log.d("Result"+num,AllResults.get(num).getName().toString());
+            shipArray += AllResults.get(num).getName().toString()+",";
+        }
+        result = shipArray.split(",");
+        for(int temp=1;temp<36;temp++){
+            Log.d("Arrayresult",result[temp]);
+        }
+        return result;
+    }
+
+
 }
