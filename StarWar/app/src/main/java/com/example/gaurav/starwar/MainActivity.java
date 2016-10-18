@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     List<ShipInfoResponse> shipInfo;
     private List<ShipInfo> AllResults =new ArrayList<>();
     ApiInterface apiService;
-    String[] mobileArray = {"Android","IPhone","WindowsMobile","Blackberry","WebOS","Ubuntu","Windows7","Max OS X"};
+    String[] mobileArray = {"Android","IPhone","WindowsMobile","Blackberry","WebOS","Ubuntu","Blackberry","WebOS","Ubuntu","Windows7","Max OS X"};
     String shipArray;
     String[] result;
 
@@ -38,14 +38,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         apiService = ApiClient.getClient().create(ApiInterface.class);
         SpaceApi(1);
-
-
-        ArrayAdapter adapter = new ArrayAdapter<String>(this, R.layout.activity_list, mobileArray);
-        ListView listView = (ListView) findViewById(R.id.mobile_list);
-        listView.setAdapter(adapter);
-
-
-
     }
 
     public void FilmsApi(){
@@ -82,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
                     SpaceApi(page+1);
                 else {
                     Log.d("Response Size", "" + AllResults.get(0).getName());
-                    String[] finalArray=resultArray();
+                    resultArray();
                 }
             }
 
@@ -96,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public String[] resultArray(){
+    public void resultArray(){
         for(int num=1;num<37;num++){
             Log.d("Result"+num,AllResults.get(num).getName().toString());
             shipArray += AllResults.get(num).getName().toString()+",";
@@ -105,7 +97,9 @@ public class MainActivity extends AppCompatActivity {
         for(int temp=1;temp<36;temp++){
             Log.d("Arrayresult",result[temp]);
         }
-        return result;
+        ArrayAdapter adapter = new ArrayAdapter<String>(this, R.layout.activity_list, result);
+        ListView listView = (ListView) findViewById(R.id.mobile_list);
+        listView.setAdapter(adapter);
     }
 
 
