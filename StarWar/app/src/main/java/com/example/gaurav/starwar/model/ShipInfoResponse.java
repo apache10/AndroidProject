@@ -10,22 +10,29 @@ import java.util.List;
 
 public class ShipInfoResponse {
     @SerializedName("count")
-    private int count;
+    private String count;
 
     @SerializedName("results")
     private List<ShipInfo> results;
 
     @SerializedName("next")
-    private int next;
+    private String next;
 
     @SerializedName("previous")
-    private int previous;
+    private String previous;
 
-    public int getCount(){
+    public ShipInfoResponse(String count, List<ShipInfo> results, String next, String previous){
+        this.results=results;
+        this.count=count;
+        this.next=next;
+        this.previous=previous;
+    }
+
+    public String getCount(){
         return count;
     }
 
-    public void setCount(int count){
+    public void setCount(String count){
         this.count=count;
     }
 
@@ -36,19 +43,19 @@ public class ShipInfoResponse {
         this.results=results;
     }
 
-    public int getNext(){
+    public String getNext(){
         return next;
     }
 
-    public void setNext(int next){
+    public void setNext(String next){
         this.next=next;
     }
 
-    public int getPrevious(){
+    public String getPrevious(){
         return previous;
     }
 
-    public void setPrevious(int previous){
+    public void setPrevious(String previous){
         this.previous=previous;
     }
 }

@@ -22,7 +22,7 @@ import retrofit2.http.Query;
 
 public interface ApiInterface {
     @GET("starships")
-    Call<ShipInfo> getShipInfo();
+    Call<ShipInfoResponse> getShipInfo(@Query("page") int page);
     @GET("films")
     Call<JsonObject> getFilmsInfo();
 

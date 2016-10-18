@@ -15,10 +15,10 @@ public class ShipInfo implements Serializable {
     private String name;
 
     @SerializedName("cost_in_credits")
-    private int cost_in_credits;
+    private String cost_in_credits;
 
     @SerializedName("films")
-    private String films;
+    private List<String> films;
 
     @SerializedName("model")
     private String model;
@@ -27,34 +27,34 @@ public class ShipInfo implements Serializable {
     private String manufacturer;
 
     @SerializedName("length")
-    private int length;
+    private String length;
 
     @SerializedName("max_atmosphering_speed")
-    private int max_atmosphering_speed;
+    private String max_atmosphering_speed;
 
     @SerializedName("crew")
-    private int crew;
+    private String crew;
 
     @SerializedName("passengers")
-    private int passengers;
+    private String passengers;
 
     @SerializedName("cargo_capacity")
-    private int cargo_capacity;
+    private String cargo_capacity;
 
     @SerializedName("consumables")
     private String consumables;
 
     @SerializedName("hyperdrive_rating")
-    private double hyperdrive_rating;
+    private String hyperdrive_rating;
 
     @SerializedName("MGLT")
-    private int MGLT;
+    private String MGLT;
 
     @SerializedName("starship_class")
     private String starship_class;
 
     @SerializedName("pilots")
-    private String pilots;
+    private List<String> pilots;
 
     @SerializedName("created")
     private String created;
@@ -69,10 +69,10 @@ public class ShipInfo implements Serializable {
 
 
 
-    public ShipInfo(String name, int cost_in_credits,String films, String model, String manufacturer,
-                    int length,int  max_atmosphering_speed, int crew, int passengers, int cargo_capacity,
-                    String consumables, double hyperdrive_rating, int MGLT,
-                    String starship_class, String pilots, String created, String edited, String url) {
+    public ShipInfo(String name, String cost_in_credits,List<String> films, String model, String manufacturer,
+                    String length,String  max_atmosphering_speed, String crew, String passengers, String cargo_capacity,
+                    String consumables, String hyperdrive_rating, String MGLT,
+                    String starship_class, List<String> pilots, String created, String edited, String url) {
         this.name = name;
         this.cost_in_credits = cost_in_credits;
         this.films = films;
@@ -100,19 +100,19 @@ public class ShipInfo implements Serializable {
         this.name = name;
     }
 
-    public double getCost() {
+    public String getCost() {
         return cost_in_credits;
     }
 
-    public void setCost(int cost_in_credits) {
+    public void setCost(String cost_in_credits) {
         this.cost_in_credits = cost_in_credits;
     }
 
-    public String getFilms() {
+    public List<String> getFilms() {
         return films;
     }
 
-    public void setFilms(String films) {
+    public void setFilms(List<String> films) {
         this.films = films;
     }
 
@@ -132,11 +132,11 @@ public class ShipInfo implements Serializable {
         this.created = created;
     }
 
-    public String getPilots() {
+    public List<String> getPilots() {
         return pilots;
     }
 
-    public void setPilots(String pilots) {
+    public void setPilots(List<String> pilots) {
         this.pilots = pilots;
     }
 
@@ -148,19 +148,19 @@ public class ShipInfo implements Serializable {
         this.starship_class = starship_class;
     }
 
-    public int getMGLT() {
+    public String getMGLT() {
         return MGLT;
     }
 
-    public void setMGLT(int MGLT) {
+    public void setMGLT(String MGLT) {
         this.MGLT = MGLT;
     }
 
-    public double getHyperdrive_rating() {
+    public String getHyperdrive_rating() {
         return hyperdrive_rating;
     }
 
-    public void setHyperdrive_rating(double hyperdrive_rating) {
+    public void setHyperdrive_rating(String hyperdrive_rating) {
         this.hyperdrive_rating = hyperdrive_rating;
     }
 
@@ -172,43 +172,43 @@ public class ShipInfo implements Serializable {
         this.consumables = consumables;
     }
 
-    public int getCargo_capacity() {
+    public String getCargo_capacity() {
         return cargo_capacity;
     }
 
-    public void setCargo_capacity(int cargo_capacity) {
+    public void setCargo_capacity(String cargo_capacity) {
         this.cargo_capacity = cargo_capacity;
     }
 
-    public int getPassengers() {
+    public String getPassengers() {
         return passengers;
     }
 
-    public void setPassengers(int passengers) {
+    public void setPassengers(String passengers) {
         this.passengers = passengers;
     }
 
-    public int getCrew() {
+    public String getCrew() {
         return crew;
     }
 
-    public void setCrew(int crew) {
+    public void setCrew(String crew) {
         this.crew = crew;
     }
 
-    public int getMax_atmosphering_speed() {
+    public String getMax_atmosphering_speed() {
         return max_atmosphering_speed;
     }
 
-    public void setMax_atmosphering_speed(int max_atmosphering_speed) {
+    public void setMax_atmosphering_speed(String max_atmosphering_speed) {
         this.max_atmosphering_speed = max_atmosphering_speed;
     }
 
-    public int getLength() {
+    public String getLength() {
         return length;
     }
 
-    public void setLength(int length) {
+    public void setLength(String length) {
         this.length = length;
     }
 
