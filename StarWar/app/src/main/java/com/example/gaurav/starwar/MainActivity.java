@@ -3,10 +3,13 @@ package com.example.gaurav.starwar;
 import android.app.ProgressDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.example.gaurav.starwar.adapter.ShipAdapter;
 import com.example.gaurav.starwar.model.ShipInfo;
 import com.example.gaurav.starwar.model.ShipInfoResponse;
 import com.example.gaurav.starwar.rest.ApiClient;
@@ -23,6 +26,7 @@ import static android.R.attr.name;
 
 public class MainActivity extends AppCompatActivity {
     List<ShipInfoResponse> shipInfo;
+    List<ShipInfo> shipRInfo = new ArrayList<>();
     private List<ShipInfo> AllResults =new ArrayList<>();
     ApiInterface apiService;
     String[] mobileArray = {"Android","IPhone","WindowsMobile","Blackberry","WebOS","Ubuntu","Blackberry","WebOS","Ubuntu","Windows7","Max OS X"};
@@ -75,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
                 else {
                     Log.d("Response Size", "" + AllResults.get(0).getName());
                     resultArray();
+                    initRecycler();
                 }
             }
 
@@ -100,6 +105,13 @@ public class MainActivity extends AppCompatActivity {
         ArrayAdapter adapter = new ArrayAdapter<String>(this, R.layout.activity_list, result);
         ListView listView = (ListView) findViewById(R.id.mobile_list);
         listView.setAdapter(adapter);
+    }
+
+    void initRecycler(){
+        final RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(new ShipAdapter(AllResults));
+
     }
 
 
