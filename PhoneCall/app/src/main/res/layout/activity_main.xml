@@ -11,7 +11,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Drag and Drop Example"
+        android:text="call and SMS"
         android:id="@+id/textView"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
@@ -28,24 +28,58 @@
         android:textColor="#ff14be3c" />
 
 
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="phone"
+        android:hint="Enter the phone number"
+        android:ems="10"
+        android:id="@+id/editText"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/textView2" />
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Call"
         android:id="@+id/button"
-        android:layout_marginTop="169dp"
-        android:layout_below="@+id/textView2"
+        android:layout_marginTop="19dp"
+        android:layout_below="@+id/editText"
         android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="write message"
+        android:textSize="24dp"
+        android:layout_below="@+id/button"
+        android:layout_alignLeft="@+id/textView"
+        android:layout_alignStart="@+id/textView"
+        android:layout_alignRight="@+id/textView"
+        android:layout_alignEnd="@+id/textView"
+        android:textColor="#ff14be3c"/>
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="phone"
-        android:ems="10"
-        android:layout_marginTop="70dp"
-        android:id="@+id/editText"
-        android:layout_below="@+id/textView2"
-        android:layout_alignLeft="@+id/textView2"
-        android:layout_alignStart="@+id/textView2" />
+        android:id="@+id/editText2"
+        android:hint="Enter SMS"
+        android:layout_below="@+id/textView1"
+        android:layout_alignLeft="@+id/editText"
+        android:layout_alignStart="@+id/editText"
+        android:layout_alignEnd="@+id/editText"
+        android:layout_alignRight="@+id/editText"
+        android:layout_centerHorizontal="true"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Send Sms"
+        android:id="@+id/sendSMS"
+        android:layout_marginTop="86dp"
+        android:layout_below="@+id/textView1"
+        android:layout_alignLeft="@+id/button"
+        android:layout_alignStart="@+id/button" />
 
 </RelativeLayout>
