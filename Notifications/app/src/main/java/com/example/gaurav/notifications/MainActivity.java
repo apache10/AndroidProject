@@ -17,6 +17,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import static android.content.Context.NOTIFICATION_SERVICE;
 
@@ -65,8 +66,9 @@ public class MainActivity extends Activity {
         builder1.setPositiveButton(
                 "Yes",
                 new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.cancel();
+                    @Override
+                    public void onClick(DialogInterface arg0, int arg1) {
+                        Toast.makeText(MainActivity.this,"You clicked yes button", Toast.LENGTH_LONG).show();
                     }
                 });
 
