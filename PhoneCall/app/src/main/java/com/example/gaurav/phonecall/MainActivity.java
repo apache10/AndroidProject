@@ -28,9 +28,10 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         Button b1 =(Button)findViewById(R.id.button);
         Button b2 =(Button)findViewById(R.id.sendSMS);
-
         final EditText text = (EditText) findViewById(R.id.editText);
+
         Log.d("num",""+text.getText().toString());
+
         b1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 call(text);
