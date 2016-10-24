@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">webView</string>
+    <string name="hint_website">Enter the website</string>
+    <string name="button">Enter</string>
+    <string name="webview">WebView</string>
+</resources>
