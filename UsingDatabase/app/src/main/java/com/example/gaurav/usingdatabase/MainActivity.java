@@ -32,5 +32,6 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "SingUp", Toast.LENGTH_SHORT).show();
             }
         });
+
     }
 }
