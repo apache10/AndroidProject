@@ -3,6 +3,7 @@ package com.hpj.gaurav.myshop;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -12,6 +13,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.hpj.gaurav.myshop.fragment.AboutUsFragment;
+import com.hpj.gaurav.myshop.fragment.ContactFragment;
+import com.hpj.gaurav.myshop.fragment.GalleryFragment;
+import com.hpj.gaurav.myshop.fragment.HomeFragment;
+import com.hpj.gaurav.myshop.fragment.QualityFragment;
+import com.hpj.gaurav.myshop.fragment.RateFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -81,16 +89,27 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
-            // Handle the camera action
+            setTitle("home");
+            Fragment fragment =new HomeFragment();
         } else if (id == R.id.nav_gallery) {
+            setTitle("gallery");
+            Fragment fragment =new GalleryFragment();
 
         } else if (id == R.id.nav_slideshow) {
+            setTitle("quality");
+            Fragment fragment =new QualityFragment();
 
         } else if (id == R.id.nav_manage) {
+            setTitle("rate/price");
+            Fragment fragment =new RateFragment();
 
         } else if (id == R.id.nav_share) {
+            setTitle("About Us");
+            Fragment fragment =new AboutUsFragment();
 
         } else if (id == R.id.nav_send) {
+            setTitle("contact");
+            Fragment fragment =new ContactFragment();
 
         }
 
