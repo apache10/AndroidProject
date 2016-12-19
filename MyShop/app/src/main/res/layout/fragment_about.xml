@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:text="  Our story begins when my forefather migrated from Hajipur, a city near Patna, to Muzaffarpur to get some employment here. Since doing goldsmith work was in our blood, but due to lack of own capital, they began with an artisian work. They began this work of craftsmanship with a principle of fairness of business to everyone they do business with. They also taught this principle to us. Since then we never looked back. "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2"
+        android:textSize="18sp" />
+
+    <TextView
+        android:text="We, later successfully transformed into the modern and innovative jewellery maker .In 1996, we opened our first showroom with the name HIRA PANNA JEWELLERS in Muzaffarpur, with the same principles which we learned from our forefather."
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView3"
+        android:textSize="18sp" />
+
+    <TextView
+        android:text="problem with adjustment and scorlling"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/textView4"
+        android:textSize="18sp" />
+
+
+</LinearLayout>

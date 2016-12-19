@@ -1,11 +1,8 @@
 package com.hpj.gaurav.myshop;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -17,7 +14,7 @@ import android.view.MenuItem;
 
 import com.hpj.gaurav.myshop.fragment.AboutUsFragment;
 import com.hpj.gaurav.myshop.fragment.ContactFragment;
-import com.hpj.gaurav.myshop.fragment.GalleryFragment;
+import com.hpj.gaurav.myshop.fragment.ProductFragment;
 import com.hpj.gaurav.myshop.fragment.HomeFragment;
 import com.hpj.gaurav.myshop.fragment.QualityFragment;
 import com.hpj.gaurav.myshop.fragment.RateFragment;
@@ -86,30 +83,44 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.nav_home) {
             setTitle("home");
             Fragment fragment =new HomeFragment();
             fragmentManager.beginTransaction().replace(R.id.content_main,fragment).commitAllowingStateLoss();
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.nav_products) {
             setTitle("gallery");
-            Fragment fragment =new GalleryFragment();
+            Fragment fragment =new ProductFragment();
             fragmentManager.beginTransaction().replace(R.id.content_main,fragment).commitAllowingStateLoss();
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_quality) {
             setTitle("quality");
             Fragment fragment =new QualityFragment();
+            fragmentManager.beginTransaction().replace(R.id.content_main,fragment).commitAllowingStateLoss();
 
-        } else if (id == R.id.nav_manage) {
-            setTitle("rate/price");
+        } else if (id == R.id.nav_rate) {
+            setTitle("Rate");
             Fragment fragment =new RateFragment();
+            fragmentManager.beginTransaction().replace(R.id.content_main,fragment).commitAllowingStateLoss();
 
-        } else if (id == R.id.nav_share) {
+        } else if (id == R.id.nav_knowlwdge) {
+            setTitle("Knowledge Center");
+            Fragment fragment = new ContactFragment();
+            fragmentManager.beginTransaction().replace(R.id.content_main, fragment).commitAllowingStateLoss();
+
+        } else if (id == R.id.nav_press) {
+            setTitle("Press Rlease");
+            Fragment fragment = new ContactFragment();
+            fragmentManager.beginTransaction().replace(R.id.content_main, fragment).commitAllowingStateLoss();
+
+        } else if (id == R.id.nav_about_us) {
             setTitle("About Us");
             Fragment fragment =new AboutUsFragment();
+            fragmentManager.beginTransaction().replace(R.id.content_main,fragment).commitAllowingStateLoss();
 
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.nav_contact) {
             setTitle("contact");
-            Fragment fragment =new ContactFragment();
+            Fragment fragment = new ContactFragment();
+            fragmentManager.beginTransaction().replace(R.id.content_main, fragment).commitAllowingStateLoss();
 
         }
 

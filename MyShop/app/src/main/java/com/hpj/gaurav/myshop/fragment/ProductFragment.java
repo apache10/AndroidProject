@@ -12,14 +12,14 @@ import com.hpj.gaurav.myshop.R;
  * Created by gaurav on 18/12/16.
  */
 
-public class RateFragment extends BaseFragment{
+public class ProductFragment extends BaseFragment {
     View view;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        View view = inflater.inflate(R.layout.fragment_rate, container, false);
+        View view = inflater.inflate(R.layout.fragment_product, container, false);
         return view;
     }
 }
