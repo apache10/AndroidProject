@@ -14,6 +14,8 @@ import android.view.MenuItem;
 
 import com.hpj.gaurav.myshop.fragment.AboutUsFragment;
 import com.hpj.gaurav.myshop.fragment.ContactFragment;
+import com.hpj.gaurav.myshop.fragment.KnowledgeFragment;
+import com.hpj.gaurav.myshop.fragment.PressFragment;
 import com.hpj.gaurav.myshop.fragment.ProductFragment;
 import com.hpj.gaurav.myshop.fragment.HomeFragment;
 import com.hpj.gaurav.myshop.fragment.QualityFragment;
@@ -84,16 +86,16 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_home) {
-            setTitle("home");
+            setTitle("Home");
             Fragment fragment =new HomeFragment();
             fragmentManager.beginTransaction().replace(R.id.content_main,fragment).commitAllowingStateLoss();
         } else if (id == R.id.nav_products) {
-            setTitle("gallery");
+            setTitle("Product");
             Fragment fragment =new ProductFragment();
             fragmentManager.beginTransaction().replace(R.id.content_main,fragment).commitAllowingStateLoss();
 
         } else if (id == R.id.nav_quality) {
-            setTitle("quality");
+            setTitle("Quality");
             Fragment fragment =new QualityFragment();
             fragmentManager.beginTransaction().replace(R.id.content_main,fragment).commitAllowingStateLoss();
 
@@ -104,12 +106,12 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_knowlwdge) {
             setTitle("Knowledge Center");
-            Fragment fragment = new ContactFragment();
+            Fragment fragment = new KnowledgeFragment();
             fragmentManager.beginTransaction().replace(R.id.content_main, fragment).commitAllowingStateLoss();
 
         } else if (id == R.id.nav_press) {
             setTitle("Press Rlease");
-            Fragment fragment = new ContactFragment();
+            Fragment fragment = new PressFragment();
             fragmentManager.beginTransaction().replace(R.id.content_main, fragment).commitAllowingStateLoss();
 
         } else if (id == R.id.nav_about_us) {
@@ -118,7 +120,7 @@ public class MainActivity extends AppCompatActivity
             fragmentManager.beginTransaction().replace(R.id.content_main,fragment).commitAllowingStateLoss();
 
         } else if (id == R.id.nav_contact) {
-            setTitle("contact");
+            setTitle("Contact");
             Fragment fragment = new ContactFragment();
             fragmentManager.beginTransaction().replace(R.id.content_main, fragment).commitAllowingStateLoss();
 
