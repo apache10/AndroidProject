@@ -3,4 +3,33 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <DatePicker
+        android:layout_width="match_parent"
+        android:layout_height="208dp"
+        android:id="@+id/datePicker" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="date"
+        android:ems="10"
+        android:id="@+id/editText4"
+        android:text="1/1/2017" />
+
+    <TextView
+        android:text="Rate Per 10 gm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView5"
+        android:textSize="30sp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:id="@+id/editText3"
+        android:text="27600.00"
+        android:textSize="24sp" />
+
 </LinearLayout>
